@@ -3,7 +3,7 @@ import pandas as pd
 
 
 
-# 1. Função para extrair vendas da Fake Store API
+# Função para extrair vendas da Fake Store API
 def extract_sales():
     endpoint = "https://fakestoreapi.com/carts"
 
@@ -28,7 +28,7 @@ def extract_sales():
 
 
 
-# 2. Execução principal
+# Execução principal
 if __name__ == "__main__":
 
     print("📡 Extraindo dados de vendas da Fake Store API...")
@@ -45,15 +45,16 @@ if __name__ == "__main__":
     print(f"🔢 Vendas originais: {len(sales_df)}")
 
 
-    # 3. SIMULAÇÃO DE MAIS VENDAS (OPÇÃO 2)
+    # SIMULAÇÃO DE MAIS VENDAS (OPÇÃO 2)
     # Duplica os dados 10 vezes → 200 vendas
     sales_df = pd.concat([sales_df] * 10, ignore_index=True)
 
     print(f"🔢 Vendas após simulação: {len(sales_df)}")
 
    
-    # 4. Salvar dados brutos 
+    # Salvar dados brutos 
     output_path = "data/raw/sales_raw.csv"
     sales_df.to_csv(output_path, index=False)
 
     print(f"✅ Dados de vendas salvos em {output_path}")
+
