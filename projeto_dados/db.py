@@ -7,7 +7,7 @@ load_dotenv(encoding="utf-8")
 
 
 
-# 1. Carregar variáveis do arquivo .env
+# Carregar variáveis do arquivo .env
 load_dotenv()
 
 DB_HOST = os.getenv("DB_HOST")
@@ -18,7 +18,7 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 
 
-# 2. Criar conexão com o banco de dados
+# Criar conexão com o banco de dados
 def get_connection():
     return psycopg.connect(
         host=DB_HOST,
@@ -31,7 +31,7 @@ def get_connection():
 
 
 
-# 3. Criar tabela baseada em um arquivo Parquet
+# Criar tabela baseada em um arquivo Parquet
 def create_table_from_parquet(table_name, parquet_path):
     """
     Cria uma tabela no banco baseada nas colunas
@@ -74,7 +74,7 @@ def create_table_from_parquet(table_name, parquet_path):
 
 
 
-# 4. Carregar dados do Parquet para o banco
+# Carregar dados do Parquet para o banco
 def load_parquet_to_db(table_name, parquet_path):
     """
     Insere os dados de um arquivo .parquet
@@ -103,7 +103,7 @@ def load_parquet_to_db(table_name, parquet_path):
     conn.close()
 
 
-# 5. Função utilitária: carregar todos os Parquets de uma pasta
+# Carregar todos os Parquets de uma pasta
 def load_all_parquets(directory_path):
     """
     Para cada arquivo .parquet:
@@ -125,9 +125,10 @@ def load_all_parquets(directory_path):
 
 
 
-# 6. Execução direta (teste)
+# Execução direta
 if __name__ == "__main__":
     PARQUET_DIR = "data/processed"
 
     load_all_parquets(PARQUET_DIR)
     print("🎉 Todos os arquivos foram carregados no banco!")
+
